@@ -1,0 +1,176 @@
+[
+    {
+        "label": "pygame",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pygame",
+        "description": "pygame",
+        "detail": "pygame",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "matrix_functions",
+        "description": "matrix_functions",
+        "isExtraImport": true,
+        "detail": "matrix_functions",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "matrix_functions",
+        "description": "matrix_functions",
+        "isExtraImport": true,
+        "detail": "matrix_functions",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "object_3d",
+        "description": "object_3d",
+        "isExtraImport": true,
+        "detail": "object_3d",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "camera",
+        "description": "camera",
+        "isExtraImport": true,
+        "detail": "camera",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "projection",
+        "description": "projection",
+        "isExtraImport": true,
+        "detail": "projection",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "njit",
+        "importPath": "numba",
+        "description": "numba",
+        "isExtraImport": true,
+        "detail": "numba",
+        "documentation": {}
+    },
+    {
+        "label": "Camera",
+        "kind": 6,
+        "importPath": "camera",
+        "description": "camera",
+        "peekOfCode": "class Camera:\n    def __init__(self, render, position):\n        self.render = render\n        self.position = np.array([*position, 1.0])\n        self.forward = np.array([0, 0, 1, 1])\n        self.up = np.array([0, 1, 0, 1])\n        self.right = np.array([1, 0, 0, 1])\n        self.h_fov = math.pi / 3\n        self.v_fov = self.h_fov * (render.HEIGHT / render.WIDTH)\n        self.near_plane = 0.1",
+        "detail": "camera",
+        "documentation": {}
+    },
+    {
+        "label": "SoftwareRender",
+        "kind": 6,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "class SoftwareRender:\n    def __init__(self):\n        pg.init()\n        self.RES = self.WIDTH, self.HEIGHT = 1600, 900\n        self.H_WIDTH, self.H_HEIGHT = self.WIDTH // 2, self.HEIGHT // 2\n        self.FPS = 60\n        self.screen = pg.display.set_mode(self.RES)\n        self.clock = pg.time.Clock()\n        self.create_objects()\n    def create_objects(self):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "translate",
+        "kind": 2,
+        "importPath": "matrix_functions",
+        "description": "matrix_functions",
+        "peekOfCode": "def translate(pos):\n    tx, ty, tz = pos\n    return np.array([\n        [1, 0, 0, 0],\n        [0, 1, 0, 0],\n        [0, 0, 1, 0],\n        [tx, ty, tz, 1]\n    ])\ndef rotate_x(a):\n    return np.array([",
+        "detail": "matrix_functions",
+        "documentation": {}
+    },
+    {
+        "label": "rotate_x",
+        "kind": 2,
+        "importPath": "matrix_functions",
+        "description": "matrix_functions",
+        "peekOfCode": "def rotate_x(a):\n    return np.array([\n        [1, 0, 0, 0],\n        [0, math.cos(a), math.sin(a), 0],\n        [0, -math.sin(a), math.cos(a), 0],\n        [0, 0, 0, 1]\n    ])\ndef rotate_y(a):\n    return np.array([\n        [math.cos(a), 0, -math.sin(a), 0],",
+        "detail": "matrix_functions",
+        "documentation": {}
+    },
+    {
+        "label": "rotate_y",
+        "kind": 2,
+        "importPath": "matrix_functions",
+        "description": "matrix_functions",
+        "peekOfCode": "def rotate_y(a):\n    return np.array([\n        [math.cos(a), 0, -math.sin(a), 0],\n        [0, 1, 0, 0],\n        [math.sin(a), 0, math.cos(a), 0],\n        [0, 0, 0, 1]\n    ])\ndef rotate_z(a):\n    return np.array([\n        [math.cos(a), math.sin(a), 0, 0],",
+        "detail": "matrix_functions",
+        "documentation": {}
+    },
+    {
+        "label": "rotate_z",
+        "kind": 2,
+        "importPath": "matrix_functions",
+        "description": "matrix_functions",
+        "peekOfCode": "def rotate_z(a):\n    return np.array([\n        [math.cos(a), math.sin(a), 0, 0],\n        [-math.sin(a), math.cos(a), 0, 0],\n        [0, 0, 1, 0],\n        [0, 0, 0, 1]\n    ])\ndef scale(n):\n    return np.array([\n        [n, 0, 0, 0],",
+        "detail": "matrix_functions",
+        "documentation": {}
+    },
+    {
+        "label": "scale",
+        "kind": 2,
+        "importPath": "matrix_functions",
+        "description": "matrix_functions",
+        "peekOfCode": "def scale(n):\n    return np.array([\n        [n, 0, 0, 0],\n        [0, n, 0, 0],\n        [0, 0, n, 0],\n        [0, 0, 0, 1]\n    ])",
+        "detail": "matrix_functions",
+        "documentation": {}
+    },
+    {
+        "label": "Object3D",
+        "kind": 6,
+        "importPath": "object_3d",
+        "description": "object_3d",
+        "peekOfCode": "class Object3D:\n    def __init__(self, render, vertices='', faces=''):\n        self.render = render\n        self.vertices = np.array([np.array(v) for v in vertices])\n        self.faces = np.array([np.array(face) for face in faces])\n        self.translate([0.0001, 0.0001, 0.0001])\n        self.font = pg.font.SysFont('Arial', 30, bold=True)\n        self.color_faces = [(pg.Color('orange'), face) for face in self.faces]\n        self.movement_flag, self.draw_vertices = True, False\n        self.label = ''",
+        "detail": "object_3d",
+        "documentation": {}
+    },
+    {
+        "label": "Axes",
+        "kind": 6,
+        "importPath": "object_3d",
+        "description": "object_3d",
+        "peekOfCode": "class Axes(Object3D):\n    def __init__(self, render):\n        super().__init__(render)\n        self.vertices = np.array([(0, 0, 0, 1), (1, 0, 0, 1), (0, 1, 0, 1), (0, 0, 1, 1)])\n        self.faces = np.array([(0, 1), (0, 2), (0, 3)])\n        self.colors = [pg.Color('red'), pg.Color('green'), pg.Color('blue')]\n        self.color_faces = [(color, face) for color, face in zip(self.colors, self.faces)]\n        self.draw_vertices = False\n        self.label = 'XYZ'",
+        "detail": "object_3d",
+        "documentation": {}
+    },
+    {
+        "label": "any_func",
+        "kind": 2,
+        "importPath": "object_3d",
+        "description": "object_3d",
+        "peekOfCode": "def any_func(arr, a, b):\n    return np.any((arr == a) | (arr == b))\nclass Object3D:\n    def __init__(self, render, vertices='', faces=''):\n        self.render = render\n        self.vertices = np.array([np.array(v) for v in vertices])\n        self.faces = np.array([np.array(face) for face in faces])\n        self.translate([0.0001, 0.0001, 0.0001])\n        self.font = pg.font.SysFont('Arial', 30, bold=True)\n        self.color_faces = [(pg.Color('orange'), face) for face in self.faces]",
+        "detail": "object_3d",
+        "documentation": {}
+    },
+    {
+        "label": "Projection",
+        "kind": 6,
+        "importPath": "projection",
+        "description": "projection",
+        "peekOfCode": "class Projection:\n    def __init__(self, render):\n        NEAR = render.camera.near_plane\n        FAR = render.camera.far_plane\n        RIGHT = math.tan(render.camera.h_fov / 2)\n        LEFT = -RIGHT\n        TOP = math.tan(render.camera.v_fov / 2)\n        BOTTOM = -TOP\n        m00 = 2 / (RIGHT - LEFT)\n        m11 = 2 / (TOP - BOTTOM)",
+        "detail": "projection",
+        "documentation": {}
+    }
+]
